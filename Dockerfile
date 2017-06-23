@@ -17,7 +17,7 @@ RUN apt-get update --yes --quiet && \
     dpkg -i /tmp/mysql.deb && \
     rm /tmp/mysql.deb && \
     apt-get update --yes --quiet && \
-    apt-get install --yes --quiet --no-install-recommends mysql-workbench mysql-client mysql-utilities && \
+    apt-get install --yes --quiet --no-install-recommends mysql-workbench mysql-client && \
     apt-get remove --yes --quiet ca-certificates apt-transport-https wget apt-utils lsb-release && \
     apt-get clean --yes && \
     rm -rf -- /var/lib/apt/lists/*
