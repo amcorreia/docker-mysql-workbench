@@ -22,4 +22,6 @@ RUN apt-get update --yes --quiet && \
     apt-get clean --yes && \
     rm -rf -- /var/lib/apt/lists/*
 
+VOLUME ~/.mysql/workbench/
+
 CMD /usr/bin/mysql-workbench
