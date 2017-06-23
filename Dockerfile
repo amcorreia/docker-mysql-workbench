@@ -1,7 +1,7 @@
 #
 # DESCRIPTION:    Image with Mysql Workbench
 # TO_BUILD:       docker build -t amcorreia/docker-mysql-workbench .
-# TO_RUN:         docker run -d --rm -it  -v /tmp/.X11-unix:/tmp/.X11-unix --name workbench amcorreia/docker-mysql-workbench
+# TO_RUN:         docker run -d --rm -it  -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --name workbench amcorreia/docker-mysql-workbench
 
 FROM debian:jessie
 
@@ -17,7 +17,7 @@ RUN apt-get update --yes --quiet && \
     dpkg -i /tmp/mysql.deb && \
     rm /tmp/mysql.deb && \
     apt-get update --yes --quiet && \
-    apt-get install --yes --quiet --no-install-recommends mysql-workbench && \
+    apt-get install --yes --quiet --no-install-recommends mysql-workbench mysql-client mysql-utilities && \
     apt-get remove --yes --quiet ca-certificates apt-transport-https wget apt-utils lsb-release && \
     apt-get clean --yes && \
     rm -rf -- /var/lib/apt/lists/*
